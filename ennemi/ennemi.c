@@ -3,7 +3,7 @@
 void initialiser_ennemi1(ennemi *en1)
 {
 
-en1->position_entite.x=200;
+en1->position_entite.x=500;
 en1->position_entite.y=200;
 en1->position_entite.w=237;
 en1->position_entite.h=259;
@@ -33,7 +33,7 @@ if(en1->Frame<=a || en1->Frame>=b)
 	
 
 }
-void deplacement( ennemi  *en1,int* a,int *b)
+void deplacement1( ennemi  *en1,int* a,int *b)
 {
 
 int r =rand()%650;
@@ -72,12 +72,42 @@ if(en1->position_entite.x==r1)
 }
 
 }
-//int collision_enn(personnage *p, ennemi en)
-//{
-//if (((p->position_personnage.x+p->position_personnage.w>en.position_entite.x+en.position_entite.w) ||&&(p->position_personnage.x<en.position_entite.x+en.position_entite.w)))
+int collision_enn(personnage *p, ennemi en)
+{
+if (((p->position.x>en.position_entite.x+en.position_entite.w) ||(p->position.x+p->position.w>en.position_entite.x)))
 
-//{
-//return 1;}
-//else
-//return 0;
-//}
+{
+return 0;}
+else
+return 1;
+}
+void initialiserp(personnage *p)
+{
+p->position.x=0;
+p->position.y=200;
+p->position.w=50;
+p->position.h=259;
+
+	char entites[10];
+	int i;
+  for ( i = 0; i <= 10; i++)
+  {
+      sprintf(entites,"%d.png",i);
+    p->affichage[i]=IMG_Load(entites);
+  }
+p->Framep=0;
+p->speedp=35;
+p->sensp=0;//droite
+}
+void afficherp(personnage p,SDL_Surface *ecran)
+{
+SDL_BlitSurface(p.affichage[p.Framep],NULL,ecran ,&(p.position));
+}
+void depp(personnage *p,int dep)
+{
+if(dep==1)
+++ (p->position.x);
+else if(dep==2)
+-- (p->position.x);
+ 
+}

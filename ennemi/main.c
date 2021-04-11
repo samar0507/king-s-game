@@ -4,20 +4,23 @@ int main(int argc, char *argv[])
 int continuer=1;
 int a,b;
 ennemi en1,en2,en3;
-int vien1=2;
+
 SDL_Surface *ecran=NULL;
 SDL_Rect *position_ecran;
 SDL_Event event; 
-//personnage p;
+int dep=0;
+
 
    SDL_Surface *image=NULL;
    SDL_Rect postionimage;
    image=IMG_Load("haha.png");
-   
+   personnage p;
     postionimage.x=0;
     postionimage.y=0;
-
+en1.vie=1;
+int score=2;
 initialiser_ennemi1(&en1);
+initialiserp(&p);
 SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
  TTF_Init();
  SDL_EnableKeyRepeat(100,100); 
@@ -27,7 +30,7 @@ SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
     
 postionimage.x=0;
     postionimage.y=0;
-
+printf("%d\n",en1.vie);
 while(continuer)
 {
 
@@ -38,20 +41,35 @@ SDL_PollEvent(&event);
             continuer = 0;
     
             break;
-            }
+            case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_RIGHT:
+            dep=1;
+            break;
+            case SDLK_LEFT:
+            dep=2;
+            break;
+            }}
 
 
     SDL_BlitSurface(image, NULL, ecran, &postionimage);
     
-    //if(collision_enn(&p,en1)==1)
-   // vien1--;
-  if(vien1!=0)
-  {
+     if(collision_enn(&p,en1)==0)
+    {en1.vie--;
+    
+    }
+ 
    afficher_ennemi1(en1,ecran);
-  
- deplacement(&en1,&a,&b);
+    deplacement1(&en1,&a,&b);
   animation1(&en1,a,b);
-}
+ 
+if(en1.vie==0)
+{continuer=0;
+printf("GAME OVER\n");}
+afficherp(p,ecran);
+    depp(&p,dep);
+   
  SDL_Flip(ecran);
 
 }
