@@ -81,33 +81,4 @@ return 0;}
 else
 return 1;
 }
-void initialiserp(personnage *p)
-{
-p->position.x=0;
-p->position.y=237;
-p->position.w=100;
-p->position.h=259;
 
-	char entites[10];
-	int i;
-  for ( i = 0; i <= 10; i++)
-  {
-      sprintf(entites,"%d.png",i);
-    p->affichage[i]=IMG_Load(entites);
-  }
-p->Framep=0;
-p->speedp=35;
-p->sensp=0;//droite
-}
-void afficherp(personnage p,SDL_Surface *ecran)
-{
-SDL_BlitSurface(p.affichage[p.Framep],NULL,ecran ,&(p.position));
-}
-void depp(personnage *p,int dep)
-{
-if(dep==1)
-++ (p->position.x);
-else if(dep==2)
--- (p->position.x);
- 
-}

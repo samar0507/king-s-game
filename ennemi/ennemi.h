@@ -21,22 +21,9 @@ int Frame;
 
 
 }ennemi;
-typedef struct personnage 
-{
-SDL_Rect position;
-SDL_Surface *affichage[20];
 
-int speedp;
-int sensp;
-int Framep;
-	
-
-
-}personnage;
 int collision_enn(personnage *p, ennemi en);
-void initialiserp(personnage *p);
-void afficherp(personnage p,SDL_Surface *ecran);
- void depp(personnage *p,int dep);
+
 /*----- ennemi 1-----*/
 void initialiser_ennemi1(ennemi *en1);
 void afficher_ennemi1(ennemi en1,SDL_Surface *ecran);
