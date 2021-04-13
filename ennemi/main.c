@@ -3,8 +3,7 @@ int main(int argc, char *argv[])
 {
 int continuer=1;
 int a,b;
-ennemi en1,en2,en3;
-
+ennemi en1,en2;
 SDL_Surface *ecran=NULL;
 SDL_Rect *position_ecran;
 SDL_Event event; 
@@ -30,10 +29,8 @@ SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
     
 postionimage.x=0;
     postionimage.y=0;
-printf("%d\n",en1.vie);
 while(continuer)
 {
-
 SDL_PollEvent(&event);
         switch(event.type)
         { 
@@ -57,10 +54,8 @@ SDL_PollEvent(&event);
     
      if(collision_enn(&p,en1)==0)
     {en1.vie--;
-    
     }
- 
-   afficher_ennemi1(en1,ecran);
+afficher_ennemi1(en1,ecran);
     deplacement1(&en1,&a,&b);
   animation1(&en1,a,b);
  
@@ -69,9 +64,8 @@ if(en1.vie==0)
 printf("GAME OVER\n");}
 afficherp(p,ecran);
     depp(&p,dep);
-   
- SDL_Flip(ecran);
-
+   SDL_Flip(ecran);
+ 
 }
 TTF_Quit();
 SDL_Quit();

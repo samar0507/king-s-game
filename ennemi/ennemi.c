@@ -3,7 +3,7 @@
 void initialiser_ennemi1(ennemi *en1)
 {
 
-en1->position_entite.x=500;
+en1->position_entite.x=200;
 en1->position_entite.y=200;
 en1->position_entite.w=237;
 en1->position_entite.h=259;
@@ -45,7 +45,7 @@ if(en1->sens==0)
 {
 
 ++(en1->position_entite.x);
-*a=0;
+*a=2;
 *b=5;
 
 }
@@ -60,7 +60,7 @@ else
 {
 if(en1->position_entite.x>r1 && en1->position_entite.x<=r )
 {
-*a=6;
+*a=7;
 *b=10;
 --(en1->position_entite.x);
 }
@@ -84,8 +84,8 @@ return 1;
 void initialiserp(personnage *p)
 {
 p->position.x=0;
-p->position.y=200;
-p->position.w=50;
+p->position.y=237;
+p->position.w=100;
 p->position.h=259;
 
 	char entites[10];
