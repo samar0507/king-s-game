@@ -42,16 +42,7 @@ SDL_PollEvent(&event);
             continuer = 0;
     
             break;
-            case SDL_KEYDOWN:
-            switch (event.key.keysym.sym)
-            {
-            case SDLK_RIGHT:
-            dep=1;
-            break;
-            case SDLK_LEFT:
-            dep=2;
-            break;
-            }}
+            }
 
 
     SDL_BlitSurface(image, NULL, ecran, &postionimage);
