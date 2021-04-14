@@ -32,6 +32,18 @@ Uint32 dt,tmpact,tmppre,k;
 int dr,num,vie;
 char temps[20];
 }personne;
+typedef struct
+{
+SDL_Surface  *bckg[3];
+SDL_Rect pos_bckg,camera;
+Mix_Music *music;
+int scroll;
+int stage;
+}background;
+ 
+void initBackg (background * b);
+void showBackg(SDL_Surface * screen, background b);
+void scrolling (background *b , SDL_Surface *screen );
 void initperso(personne *p,SDL_Color couleurNoir);
 void afficherperso(personne *p,SDL_Surface *ecran);
 void deplacerperso(personne *p);
