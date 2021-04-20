@@ -181,7 +181,7 @@ for(int i=0;i<400;i++)
 {tab[i]=0;
 }p.dt=(SDL_GetTicks()-t_prev)/16;
 
-afficher_temps(&t,ecran); //nouv     core dumped here my friend
+//afficher_temps(&t,ecran); //nouv     core dumped here my friend
 
 
 
