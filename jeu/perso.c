@@ -58,6 +58,7 @@ SDL_BlitSurface(p->tabvie[p->vie], NULL, ecran, &(p->posimgvie));
 SDL_BlitSurface(p->score, NULL, ecran, &(p->posscore));
 }
 
+//deplacer perso
 void deplacerperso(personne *p)
 {
 if(p->dep==1)

@@ -4,10 +4,18 @@ int main(int argc, char *argv[])
 int continuer=1;
 int a,b;
 ennemi en1,en2;
+//nouv
+miniknight k;
+minimap m;
+temps t;
+//nouv
 SDL_Surface *ecran=NULL;
 SDL_Rect *position_ecran;
 SDL_Event event; 
 background bckg;
+
+SDL_Surface *surfM=IMG_Load("rsz_level3masque.jpg"); //nouv
+
 int dep=0;
 int tab[400]={0};
 SDL_Color couleurNoir={0,0,0};
@@ -15,23 +23,37 @@ Uint32 t_prev;
    SDL_Surface *image=NULL;
    SDL_Rect postionimage;
 
-  personne p;
+    personne p;
+Uint8 *key=SDL_GetKeyState(NULL);    //nouv
     postionimage.x=0;
     postionimage.y=0;
+
+// nouv
+k.sprite= IMG_Load("rsz_knight.png");
+k.position_miniknight.x=0;
+k.position_miniknight.y=65;
+//nouv
+
 en1.vie=1;
 int score=2;
+
+//init nouv
+initmap(&m);
+initialiser_temps(&t);
+//fin init nouv
+
 initialiser_ennemi1(&en1);
 initBackg (&bckg);
 initperso(&p, couleurNoir);
 SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
  TTF_Init();
- SDL_EnableKeyRepeat(100,100); 
+ SDL_EnableKeyRepeat(10,10); 
 
-    ecran = SDL_SetVideoMode(1300,600,32,SDL_HWSURFACE|SDL_DOUBLEBUF); 
+    ecran = SDL_SetVideoMode(1200,600,32,SDL_HWSURFACE|SDL_DOUBLEBUF); 
     SDL_WM_SetCaption("jeu code", NULL);
     
 postionimage.x=0;
-    postionimage.y=0;
+postionimage.y=0;
 while(continuer)
 {
 
@@ -136,7 +158,8 @@ if(tab[SDLK_l]==1)
     {en1.vie--;
     }
 afficher_ennemi1(en1,ecran);
-    deplacement1(&en1,&a,&b);
+
+deplacement1(&en1,&a,&b);
   animation1(&en1,a,b);
  
 /*if(en1.vie==0)
@@ -145,14 +168,36 @@ printf("GAME OVER\n");}*/
 //afficherp(p,ecran);
    // depp(&p,dep);
 //scor(&p, couleurNoir);
+afficherminimap (m,ecran); //nouv
+
+	k.position_miniknight.x=p.posperso.x*25/100;
+	k.position_miniknight.y=p.posperso.y*25/100;
+
 afficherperso(&p,ecran);
+
+SDL_BlitSurface(k.sprite, NULL, ecran, &k.position_miniknight); // nouv
+
 for(int i=0;i<400;i++)
 {tab[i]=0;
 }p.dt=(SDL_GetTicks()-t_prev)/16;
+
+afficher_temps(&t,ecran); //nouv     core dumped here my friend
+
+
+
+
+
+
    SDL_Flip(ecran);
  
+
+
 }
+
+free_temps(&t,ecran);
+
 TTF_Quit();
 SDL_Quit();
    
- return EXIT_SUCCESS;}
+ return EXIT_SUCCESS;
+}
