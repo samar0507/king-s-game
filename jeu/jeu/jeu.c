@@ -49,7 +49,7 @@ SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
  TTF_Init();
  SDL_EnableKeyRepeat(10,10); 
 
-    ecran = SDL_SetVideoMode(1200,600,32,SDL_HWSURFACE|SDL_DOUBLEBUF); 
+    ecran = SDL_SetVideoMode(1200,800,32,SDL_HWSURFACE|SDL_DOUBLEBUF); 
     SDL_WM_SetCaption("jeu code", NULL);
     
 postionimage.x=0;
@@ -157,14 +157,14 @@ if(tab[SDLK_l]==1)
      if(collision_enn(&p,en1)==0)
     {en1.vie--;
     }
+    if(en1.vie>0)
+    {
 afficher_ennemi1(en1,ecran);
 
 deplacement1(&en1,&a,&b);
   animation1(&en1,a,b);
- 
-/*if(en1.vie==0)
-{continuer=0;
-printf("GAME OVER\n");}*/
+ }
+
 //afficherp(p,ecran);
    // depp(&p,dep);
 //scor(&p, couleurNoir);
