@@ -74,7 +74,7 @@ if(en1->position_entite.x==r1)
 }
 int collision_enn(personne *p, ennemi en)
 {
-if (((p->posperso.x>en.position_entite.x+en.position_entite.w) ||(p->posperso.x+p->posperso.w>en.position_entite.x)))
+if (((p->posperso.x>en.position_entite.x+en.position_entite.w) ||(p->posperso.x+5<en.position_entite.x)))
 
 {
 return 0;}

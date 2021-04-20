@@ -4,8 +4,8 @@ void initperso(personne *p,SDL_Color couleurNoir)
 { p->k=0;
  p->police = TTF_OpenFont("ka1.ttf", 40);
 
-p->posperso.x =10;
-         p->posperso.y =300;
+p->posperso.x =0;
+         p->posperso.y =350;
 
 p->posimgvie.x = 800;
         p->posimgvie.y = 0;

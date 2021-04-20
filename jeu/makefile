@@ -1,6 +1,10 @@
-prog: main.o ennemi.o
-	gcc  main.o ennemi.o -o prog -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
-main.o: main.c
-	gcc -c main.c -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
+prog: jeu.o ennemi.o perso.o background.o
+	gcc  jeu.o ennemi.o perso.o background.o -o prog -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
+jeu.o: jeu.c
+	gcc -c jeu.c -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
+perso.o: perso.c
+	gcc -c perso.c -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
 ennemi.o: ennemi.c
 	gcc -c ennemi.c -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
+background.o: background.c
+	gcc -c background.c -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf -g
