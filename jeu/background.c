@@ -4,7 +4,7 @@
 void initBackg (background * b)
 {
 b->bckg[0]= IMG_Load ("premier.jpg");
-b->bckg[1]= IMG_Load ("deuxieme1.jpg");
+b->bckg[1]= IMG_Load ("deuxieme.jpg");
 b->bckg[2]= IMG_Load ("troisieme.jpg");
 b->pos_bckg.x=0;
 b->pos_bckg.y=0;

@@ -15,40 +15,12 @@ SDL_Surface *affichage_secondaire[20];
 int speed;
 int sens;
 int Frame;
-int vie;
+	int vie;
+	
 	
 
+
 }ennemi;
-
-typedef struct
-{
-SDL_Rect position_miniknight;
-
-SDL_Surface *sprite;
-}miniknight;
-
-typedef struct
-{
-SDL_Rect position_mini;
-
-SDL_Surface *sprite;
-}minimap;
-
-typedef struct temps
-{
-SDL_Surface *texte;
-SDL_Rect position;
-  
-TTF_Font *police ;
-
-char entree[20];
-SDL_Color couleurBlanche,couleurNoire ;
-int tempsActuel,tempsPrecedent;
-int min,cmp;
-}temps;
-
-/*--------personne --------*/
-
 typedef struct 
 {SDL_Surface *tab[20],*tabvie[4],*scor,*score;
 SDL_Rect posperso,posimgvie,posscore;
@@ -92,21 +64,4 @@ void initialiser_ennemi2(ennemi *en2);
 void afficher_ennemi2(ennemi en2, SDL_Surface *ecran);
 void animation2(ennemi *en2,int a,int b);
 void deplacement2( ennemi * en2,int* a,int *b);
-
-/*-----background +minimap----- */
-
-void initmap( minimap * m);
-
-void afficherminimap (minimap m, SDL_Surface * screen);
-
-void initialiser_temps(temps *t);
-
-void afficher_temps(temps *t,SDL_Surface *screen);
-
-void free_temps(temps *t,SDL_Surface *screen);
-
-SDL_Color GetPixel(SDL_Surface* pSurface ,int x,int y);
-
-int collisionPP(personne p, SDL_Surface * Masque);
-
 
