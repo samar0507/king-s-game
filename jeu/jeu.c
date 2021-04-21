@@ -135,25 +135,20 @@ if(tab[SDLK_l]==1)
      if(collision_enn(&p,en1)==0)
     {en1.vie--;
     }
-    if(en1.vie>0)
-    {
 afficher_ennemi1(en1,ecran);
     deplacement1(&en1,&a,&b);
   animation1(&en1,a,b);
- }
-
+ 
+/*if(en1.vie==0)
+{continuer=0;
+printf("GAME OVER\n");}*/
 //afficherp(p,ecran);
    // depp(&p,dep);
 //scor(&p, couleurNoir);
 afficherperso(&p,ecran);
-//for(int i=0;i<400;i++)
-//{tab[i]=0;
-//}p.dt=(SDL_GetTicks()-t_prev)/16;
-
-
-//afficher_temps(&t,ecran); //nouv     core dumped here my friend
-
-
+for(int i=0;i<400;i++)
+{tab[i]=0;
+}p.dt=(SDL_GetTicks()-t_prev)/16;
    SDL_Flip(ecran);
  
 }
